@@ -139,12 +139,8 @@ public class CustomerOperation implements DbConnect {
         String deleteQuery;
         String updateQuery;
         String selectQuery;
-//        String insertPurchasedMed;
         selectQuery = "SELECT quantity from `medicineforcough` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
         deleteQuery = "DELETE FROM `medicineforcough` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-//        insertPurchasedMed = "INSERT INTO from 'purchasedmedcough' (medcough_id, user   _id,)";
-//        insertQuery = String.format("INSERT INTO `accounts` (name,age,email,password,ecoin) "
-//                + "VALUES ('%s','%d','%s','%s','%d')", name, age, email, password, 2000);
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
@@ -164,8 +160,8 @@ public class CustomerOperation implements DbConnect {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
             System.out.println(ex.getMessage());
-        } 
-        
+        }
+
     }
 
     public void purchaseMedForHeadache(String brandname, String genericname, String type, int quantity) {
@@ -264,7 +260,7 @@ public class CustomerOperation implements DbConnect {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     public Object[][] viewPurchasedMedForCough() {
         Connection conn = null;
         Statement stmt = null;
@@ -273,7 +269,7 @@ public class CustomerOperation implements DbConnect {
         String selectQuery;
 
         selectQuery = "SELECT * from `purchasedmedforcough`";
-        
+
         try {
             int cols = 0;
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
